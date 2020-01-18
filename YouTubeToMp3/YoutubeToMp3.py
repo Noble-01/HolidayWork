@@ -27,3 +27,5 @@ with youtube_dl.YoutubeDL(download_options) as dl:
     with open('../' + argv[1], 'r') as f:
         for song_url in f:
             dl.download([song_url])
+
+open("../songs.txt", "w").close()
