@@ -33,14 +33,11 @@ class Mywin(wx.Frame):
       self.Centre() 
       self.Show() 
       self.Fit()  
-		
-   def OnKeyTyped(self, event): 
-       print(event.GetString())
 
    def OnClicked(self, event): 
       btn = self.t3.GetValue()
       # Open the file in append & read mode ('a+')
-      with open("TestButton.txt", "a+") as file_object:
+      with open("songs.txt", "a+") as file_object:
          # Move read cursor to the start of file.
          file_object.seek(0)
          # If file is not empty then append '\n'
@@ -49,6 +46,7 @@ class Mywin(wx.Frame):
             file_object.write("\n")
          # Append text at the end of file
          file_object.write(btn)
+      btn = self.t3.SetValue(" ")
 
    def OnClickedConvert(self, event):
       os.system("python YoutubeToMp3.py songs.txt")
