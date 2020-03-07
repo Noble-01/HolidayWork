@@ -1,5 +1,7 @@
 import wx
-  
+import os
+import youtube_dl
+from sys import argv
 class Mywin(wx.Frame): 
    def __init__(self, parent, title): 
       super(Mywin, self).__init__(parent, title = title,size = (350,250))
@@ -24,7 +26,7 @@ class Mywin(wx.Frame):
       #button Convert Button
       self.btn1 = wx.Button(panel,-1,"convert") 
       vbox.Add(self.btn1,0,wx.ALIGN_CENTER) 
-      self.btn1.Bind(wx.EVT_BUTTON,self.OnClicked)
+      self.btn1.Bind(wx.EVT_BUTTON,self.OnClickedConvert)
 
       panel.SetSizer(vbox) 
         
@@ -34,6 +36,7 @@ class Mywin(wx.Frame):
 		
    def OnKeyTyped(self, event): 
        print(event.GetString())
+
    def OnClicked(self, event): 
       btn = self.t3.GetValue()
       # Open the file in append & read mode ('a+')
@@ -47,6 +50,8 @@ class Mywin(wx.Frame):
          # Append text at the end of file
          file_object.write(btn)
 
+   def OnClickedConvert(self, event):
+      os.system("python YoutubeToMp3.py songs.txt")
 app = wx.App() 
 Mywin(None,  'Youtube To Mp3')
 app.MainLoop()
