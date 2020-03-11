@@ -22,7 +22,7 @@ class Mywin(wx.Frame):
       self.btn = wx.Button(panel,-1,"add URL") 
       vbox.Add(self.btn,0,wx.ALIGN_CENTER) 
       self.btn.Bind(wx.EVT_BUTTON,self.OnClicked)
-
+      #demonstration
       #button Convert Button
       self.btn1 = wx.Button(panel,-1,"convert") 
       vbox.Add(self.btn1,0,wx.ALIGN_CENTER) 
